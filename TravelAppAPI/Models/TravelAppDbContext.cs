@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
@@ -30,10 +30,9 @@ public partial class TravelAppDbContext : DbContext
                 .IsUnicode(false)
                 .HasDefaultValueSql("('')");
             entity.Property(e => e.Rating).HasDefaultValueSql("((0))");
-
-            entity.HasOne(d => d.User).WithMany(p => p.Surveys)
-                .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__Survey__UserId__628FA481");
+            entity.Property(e => e.Username)
+                .HasMaxLength(30)
+                .IsUnicode(false);
         });
 
         modelBuilder.Entity<TravelUser>(entity =>
