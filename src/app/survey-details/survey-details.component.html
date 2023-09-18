@@ -1,1 +1,37 @@
-<p>survey-details works!</p>
+<div>
+    <h1>Survey Details</h1>
+    <div *ngIf="survey">
+        <div>
+            <strong>ID:</strong> {{ survey.id }}
+        </div>
+        <div>
+            <strong>Location:</strong> {{ survey.location }}
+        </div>
+        <div>
+            <strong>Username:</strong> {{ survey.username }}
+        </div>
+        <div>
+            <strong>Rating:</strong> {{ survey.rating }}
+        </div>
+        <div>
+            <strong>Message:</strong> {{ survey.message }}
+        </div>
+        <!-- 
+        <div>
+        <strong>Review:</strong> {{ survey.message || 'No review available' }}
+        </div>
+        <div>
+            <strong>Rating:</strong> {{ survey.rating || 'Not rated yet' }}
+        </div>
+         -->
+        <div>
+            <button routerLink="/surveys">
+                Back to List
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="!survey">
+        <p>Survey not found!</p>
+    </div>
+</div>

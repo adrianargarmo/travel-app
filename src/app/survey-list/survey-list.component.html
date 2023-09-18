@@ -4,7 +4,6 @@
     <thead>
     <tr>
     <th>ID</th>
-    <th>UserID</th>
     <th>Location</th>
     <th>Message</th>
     <th>Rating</th>
@@ -14,13 +13,13 @@
     <tbody>
     <tr *ngFor="let survey of surveys">
     <td>{{ survey.id }}</td>
-    <td>{{ survey.userId }}</td>
     <td>{{ survey.location }}</td>
     <td>{{ survey.message }}</td>
     <td>{{ survey.rating }}</td>
     <td>{{ survey.username }}</td>
     <td>
     <button [routerLink]="['/surveys', survey.id]">View</button>
+    <button [routerLink]="['/edit-survey', survey.id]">Edit</button>
     <button (click)="deleteSurvey(survey.id)">Delete</button>
     </td>
     </tr>
