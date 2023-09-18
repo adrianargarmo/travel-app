@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { SurveyListComponent } from './survey-list/survey-list.component';
 import { SurveyDetailsComponent } from './survey-details/survey-details.component';
 import { SurveyFormComponent } from './survey-form/survey-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SurveyFormComponent } from './survey-form/survey-form.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
