@@ -13,11 +13,20 @@ namespace TravelAppAPI.Controllers
       _dbContext = dbContext;
     }
 
-    // read
+    // get surveys
     [HttpGet]
     public ActionResult<IEnumerable<Survey>> GetSurveys()
     {
       return _dbContext.Surveys.ToList();
+    }
+
+    // get one survey
+    [HttpGet("{id}")]
+    public ActionResult<Survey> GetSurvey(int id)
+    {
+      var survey = _dbContext.Surveys.Find(id);
+      if (survey == null) { return NotFound(); }
+      return survey;
     }
 
     // create

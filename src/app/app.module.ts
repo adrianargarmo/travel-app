@@ -7,18 +7,24 @@ import { AppComponent } from './app.component';
 import { SurveyListComponent } from './survey-list/survey-list.component';
 import { SurveyDetailsComponent } from './survey-details/survey-details.component';
 import { SurveyFormComponent } from './survey-form/survey-form.component';
+import { FormsModule } from '@angular/forms';
+import { PointsOfInterestComponent } from './points-of-interest/points-of-interest.component';
+import { SafePlaceComponent } from './safe-place/safe-place.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SurveyListComponent,
     SurveyDetailsComponent,
-    SurveyFormComponent
+    SurveyFormComponent,
+    PointsOfInterestComponent,
+    SafePlaceComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
