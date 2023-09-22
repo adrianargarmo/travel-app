@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PointsOfInterestApiService } from '../points-of-interest-api.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-points-of-interest',
@@ -8,17 +9,29 @@ import { PointsOfInterestApiService } from '../points-of-interest-api.service';
 })
 export class PointsOfInterestComponent implements OnInit {
   pointsOfInterestData: any;
+  bearerToken: string = '';
 
-  constructor(private pointsOfInterestService: PointsOfInterestApiService) { }
+  constructor(private pointsOfInterestService: PointsOfInterestApiService, private http: HttpClient) { }
 
   ngOnInit(): void {
-    // https://test.api.amadeus.com/v1/reference-data/locations/pois?latitude=32.806993&longitude=-96.836857&radius=20&page[limit]=10
-    this.pointsOfInterestData.getSafePlaceInformation(32.806993, -96.836857, 20).subscribe(
-      (data: any) => {
-        this.pointsOfInterestData = data;
+    this.pointsOfInterestService.getToken().subscribe(
+      (token: any) => {
+        console.log(`Token: ${token.access_token}`)
+        this.bearerToken = token.access_token;
+
+        // https://test.api.amadeus.com/v1/safety/safety-rated-locations?latitude=32.806993&longitude=-96.836857&radius=20&page[limit]=10
+        this.pointsOfInterestService.getPointsOfInterestInformation(32.806993, -96.836857, 20, this.bearerToken).subscribe(
+          (data: any) => {
+            console.log(`data: ${JSON.stringify(data)}`)
+            this.pointsOfInterestData = data;
+          },
+          (error: any) => {
+            console.log(`Error: ${JSON.stringify(error)}`)
+          }
+        );
       },
       (error: any) => {
-        console.error(error);
+        console.log(`Error: ${error}`)
       }
     );
   }
