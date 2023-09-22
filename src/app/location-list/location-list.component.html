@@ -1,0 +1,22 @@
+<div>
+    <h1>Location List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let location of locations">
+                <td>{{ location.locationName }}</td>
+                <td>{{location.latitudeNorth}}</td>
+                <td>{{location.longitudeWest}}</td>
+                <td>
+                    <!--<button [routerLink]="['/surveys', survey.id]">View</button>
+                    <button [routerLink]="['/edit-survey', survey.id]">Edit</button>
+                    <button (click)="deleteSurvey(survey.id)">Delete</button>-->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
