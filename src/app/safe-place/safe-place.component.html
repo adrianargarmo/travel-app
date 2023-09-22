@@ -1,3 +1,17 @@
-<div>
-    <h1>Safe Place</h1>
-</div>
+<div *ngIf="safePlaceData">
+    <h2>List of Items</h2>
+    <ul>
+      <li *ngFor="let item of safePlaceData.data">
+        
+        Location: {{ item.name }}
+        Safety Scores:
+        Overall: {{ item.safetyScores.overall }}
+        LGBTQ: {{ item.safetyScores.lgbtq }}
+        Medical: {{ item.safetyScores.medical }}
+        Physical Harm: {{ item.safetyScores.physicalHarm }}
+        Political Freedom: {{ item.safetyScores.politicalFreedom }}
+        Theft: {{ item.safetyScores.theft }}
+        Women: {{ item.safetyScores.women }}
+      </li>
+    </ul>
+  </div>
