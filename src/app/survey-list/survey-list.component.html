@@ -1,28 +1,28 @@
 <div>
     <h1>Survey List</h1>
     <table>
-    <thead>
-    <tr>
-    <th>ID</th>
-    <th>Location</th>
-    <th>Message</th>
-    <th>Rating</th>
-    <th>Username</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let survey of surveys">
-    <td>{{ survey.id }}</td>
-    <td>{{ survey.location }}</td>
-    <td>{{ survey.message }}</td>
-    <td>{{ survey.rating }}</td>
-    <td>{{ survey.username }}</td>
-    <td>
-    <button [routerLink]="['/surveys', survey.id]">View</button>
-    <button [routerLink]="['/edit-survey', survey.id]">Edit</button>
-    <button (click)="deleteSurvey(survey.id)">Delete</button>
-    </td>
-    </tr>
-    </tbody>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Location</th>
+                <th>Message</th>
+                <th>Rating</th>
+                <th>Username</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let survey of surveys">
+                <td>{{ survey.id }}</td>
+                <td>{{ survey.location }}</td>
+                <td>{{ survey.message }}</td>
+                <td>{{ survey.rating }}</td>
+                <td>{{ survey.username }}</td>
+                <td>
+                    <button [routerLink]="['/surveys', survey.id]">View</button>
+                    <button [routerLink]="['/edit-survey', survey.id]">Edit</button>
+                    <button (click)="deleteSurvey(survey.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
     </table>
-    </div>
+</div>
