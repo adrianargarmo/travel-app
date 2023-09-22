@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,12 +11,21 @@ public partial class TravelAppDbContext : DbContext
     {
     }
 
+    public virtual DbSet<Location> Locations { get; set; }
+
     public virtual DbSet<Survey> Surveys { get; set; }
 
     public virtual DbSet<TravelUser> TravelUsers { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Location>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Location__3214EC07D6362009");
+
+            entity.Property(e => e.LocationName).HasMaxLength(30);
+        });
+
         modelBuilder.Entity<Survey>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Survey__3214EC075352D9C4");
@@ -33,6 +42,10 @@ public partial class TravelAppDbContext : DbContext
             entity.Property(e => e.Username)
                 .HasMaxLength(30)
                 .IsUnicode(false);
+
+            entity.HasOne(d => d.User).WithMany(p => p.Surveys)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK__Survey__UserId__628FA481");
         });
 
         modelBuilder.Entity<TravelUser>(entity =>

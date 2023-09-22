@@ -10,6 +10,7 @@ import { SurveyFormComponent } from './survey-form/survey-form.component';
 import { FormsModule } from '@angular/forms';
 import { PointsOfInterestComponent } from './points-of-interest/points-of-interest.component';
 import { SafePlaceComponent } from './safe-place/safe-place.component';
+import { LocationListComponent } from './location-list/location-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SafePlaceComponent } from './safe-place/safe-place.component';
     SurveyDetailsComponent,
     SurveyFormComponent,
     PointsOfInterestComponent,
-    SafePlaceComponent
+    SafePlaceComponent,
+    LocationListComponent
   ],
   imports: [
     BrowserModule,
