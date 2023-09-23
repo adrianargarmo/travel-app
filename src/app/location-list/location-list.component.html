@@ -1,5 +1,5 @@
 <div>
-    <h1>Location List</h1>
+    <h1>Choose a destination!</h1>
     <table>
         <thead>
             <tr>
@@ -8,14 +8,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let location of locations">
-                <td>{{ location.locationName }}</td>
-                <td>{{location.latitudeNorth}}</td>
-                <td>{{location.longitudeWest}}</td>
-                <td>
-                    <!--<button [routerLink]="['/surveys', survey.id]">View</button>
-                    <button [routerLink]="['/edit-survey', survey.id]">Edit</button>
-                    <button (click)="deleteSurvey(survey.id)">Delete</button>-->
-                </td>
+                <button [routerLink]="['/location', location.id]">{{ location.locationName }}</button>                
             </tr>
         </tbody>
     </table>

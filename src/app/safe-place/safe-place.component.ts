@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SafePlaceApiService } from '../safe-place-api.service';
 import { HttpClient } from '@angular/common/http';
+import { LocationService } from '../location.service';
 
 @Component({
   selector: 'app-safe-place',
@@ -8,10 +9,13 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./safe-place.component.css']
 })
 export class SafePlaceComponent implements OnInit {
+
   safePlaceData: any;
   bearerToken: string = '';
+  LatitudeNorth: number = 0;
+   LongitudeWest: number = 0;
 
-  constructor(private safePlaceService: SafePlaceApiService, private http: HttpClient) { }
+  constructor(private safePlaceService: SafePlaceApiService, private http: HttpClient, private locationService: LocationService) { }
 
   ngOnInit(): void {
     this.safePlaceService.getToken().subscribe(

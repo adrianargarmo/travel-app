@@ -20,7 +20,7 @@
                 <td>
                     <button [routerLink]="['/surveys', survey.id]">View</button>
                     <button [routerLink]="['/edit-survey', survey.id]">Edit</button>
-                    <button (click)="deleteSurvey(survey.id)">Delete</button>
+                    <div *ngIf="isAdminAuthenticatedUser"><button (click)="deleteSurvey(survey.id)">Delete</button></div>                    
                 </td>
             </tr>
         </tbody>
