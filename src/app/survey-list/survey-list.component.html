@@ -10,6 +10,8 @@
     <th>Username</th>
     </tr>
     </thead>
+    <p>Click the link below to go to the Survey List:</p>
+    <a routerLink="/add-survey">Add Survey</a>
     <tbody>
     <tr *ngFor="let survey of surveys">
     <td>{{ survey.id }}</td>
@@ -21,6 +23,7 @@
     <button [routerLink]="['/surveys', survey.id]">View</button>
     <button [routerLink]="['/edit-survey', survey.id]">Edit</button>
     <button (click)="deleteSurvey(survey.id)">Delete</button>
+   
     </td>
     </tr>
     </tbody>
