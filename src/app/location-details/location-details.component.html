@@ -1,0 +1,37 @@
+<div>
+    <h1>Location Details</h1>
+    <div *ngIf="location">
+        <div>
+            <strong>Name:</strong> {{ location.locationName }}
+        </div>
+        <div>
+            <strong>Location:</strong> {{ location.location }}
+        </div>
+        <div>
+            <strong>Username:</strong> {{ location.username }}
+        </div>
+        <div>
+            <strong>Rating:</strong> {{ location.rating }}
+        </div>
+        <div>
+            <strong>Message:</strong> {{ location.message }}
+        </div>
+        <!-- 
+        <div>
+        <strong>Review:</strong> {{ survey.message || 'No review available' }}
+        </div>
+        <div>
+            <strong>Rating:</strong> {{ survey.rating || 'Not rated yet' }}
+        </div>
+         -->
+        <div>
+            <button routerLink="/locations">
+                Back to List
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="!location">
+        <p>Location not found!</p>
+    </div>
+</div>

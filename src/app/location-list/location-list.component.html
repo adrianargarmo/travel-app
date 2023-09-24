@@ -1,0 +1,15 @@
+<div>
+    <h1>Choose a destination!</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let location of locations">
+                <button [routerLink]="['/location', location.id]">{{ location.locationName }}</button>                
+            </tr>
+        </tbody>
+    </table>
+</div>
