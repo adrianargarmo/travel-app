@@ -1,0 +1,8 @@
+<div class="admin-login-form">
+    <h2>Admin Login</h2>
+    <form (ngSubmit)="login()">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" [(ngModel)]="username" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>

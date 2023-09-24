@@ -13,4 +13,9 @@ export class LocationService {
   getLocations(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
+
+  getLocation(id: number): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<any>(url);
+  }
 }
