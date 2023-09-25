@@ -3,7 +3,7 @@
   <h2>Safety Ratings</h2>
     <ul>
       <li *ngFor="let item of safePlaceData.data">
-        <h3>Safety Scores: for {{ item.name }}</h3>
+        <h3>{{ item.name }}</h3>
         Overall: {{ item.safetyScores.overall }}
         LGBTQ: {{ item.safetyScores.lgbtq }}
         Medical: {{ item.safetyScores.medical }}
