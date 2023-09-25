@@ -25,5 +25,14 @@ namespace TravelAppAPI.Controllers
     {
       return _dbContext.Locations.ToList();
     }
+
+    // get one survey
+    [HttpGet("{id}")]
+    public ActionResult<Location> GetLocation(int id)
+    {   
+      var location = _dbContext.Locations.Find(id); 
+      if (location == null) { return NotFound(); }
+      return location;
+    }
   }
 }

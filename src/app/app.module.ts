@@ -11,6 +11,10 @@ import { FormsModule } from '@angular/forms';
 import { PointsOfInterestComponent } from './points-of-interest/points-of-interest.component';
 import { SafePlaceComponent } from './safe-place/safe-place.component';
 import { LocationListComponent } from './location-list/location-list.component';
+import { LocationDetailsComponent } from './location-details/location-details.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { LocationListComponent } from './location-list/location-list.component';
     SurveyFormComponent,
     PointsOfInterestComponent,
     SafePlaceComponent,
-    LocationListComponent
+    LocationListComponent,
+    LocationDetailsComponent,
+    AdminLoginComponent,
+    AdminDashboardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

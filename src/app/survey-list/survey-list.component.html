@@ -1,26 +1,25 @@
 <div>
     <h1>Survey List</h1>
+    <a routerLink="/add-survey">Add Survey</a>
     <table>
         <thead>
             <tr>
-                <th>ID</th>
+                <th>Traveler</th>
                 <th>Location</th>
                 <th>Message</th>
                 <th>Rating</th>
-                <th>Username</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let survey of surveys">
-                <td>{{ survey.id }}</td>
+                <td>{{ survey.username }}</td>
                 <td>{{ survey.location }}</td>
                 <td>{{ survey.message }}</td>
                 <td>{{ survey.rating }}</td>
-                <td>{{ survey.username }}</td>
                 <td>
-                    <button [routerLink]="['/surveys', survey.id]">View</button>
-                    <button [routerLink]="['/edit-survey', survey.id]">Edit</button>
-                    <button (click)="deleteSurvey(survey.id)">Delete</button>
+                    <!--<button [routerLink]="['/surveys', survey.id]">View</button>-->
+                    <!--<button [routerLink]="['/edit-survey', survey.id]">Edit</button>-->
+                    <!--<div *ngIf="isAdminAuthenticatedUser"><button (click)="deleteSurvey(survey.id)">Delete</button></div>-->
                 </td>
             </tr>
         </tbody>

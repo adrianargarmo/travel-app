@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SurveyService } from '../survey.service';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-survey-list',
@@ -10,7 +11,8 @@ import { SurveyService } from '../survey.service';
 export class SurveyListComponent implements OnInit {
   surveys: any[] = [];
 
-  constructor(private surveyService: SurveyService) {}
+
+  constructor(private surveyService: SurveyService, authenticationService: AuthenticationService) {}
 
   ngOnInit(): void {
     this.getSurveys();
@@ -25,5 +27,10 @@ export class SurveyListComponent implements OnInit {
     this.surveyService.deleteSurvey(id).subscribe(() => {
       this.getSurveys();
     });
+  }
+
+  isAdminAuthenticatedUser(): boolean {
+    // Check if the user is authenticated as an admin
+    return this.isAdminAuthenticatedUser();
   }
 }
