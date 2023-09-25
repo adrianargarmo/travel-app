@@ -1,9 +1,8 @@
 <div *ngIf="pointsOfInterestData">
-    <h2>List of Items</h2>
+  <h2>Places to Visit</h2>
     <ul>
-      <li *ngFor="let item of pointsOfInterestData.data">
-        
-        Place: {{ item.name }}
+      <li *ngFor="let item of pointsOfInterestData.data"> 
+        <h3>{{ item.name }}</h3>
         Category: {{ item.category }}
         Rank: {{ item.rank }}
         Tags: {{ item.tags }}
