@@ -1,11 +1,9 @@
 
 <div *ngIf="safePlaceData">
-    <h2>List of Items</h2>
+  <h2>Safety Ratings</h2>
     <ul>
       <li *ngFor="let item of safePlaceData.data">
-        
-        Location: {{ item.name }}
-        Safety Scores:
+        <h3>Safety Scores: for {{ item.name }}</h3>
         Overall: {{ item.safetyScores.overall }}
         LGBTQ: {{ item.safetyScores.lgbtq }}
         Medical: {{ item.safetyScores.medical }}
