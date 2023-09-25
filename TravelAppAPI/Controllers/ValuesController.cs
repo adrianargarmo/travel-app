@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using TravelAppAPI.Models;
 
 namespace TravelAppAPI.Controllers
@@ -20,7 +22,7 @@ namespace TravelAppAPI.Controllers
       return _dbContext.Surveys.ToList();
     }
 
-    // get one survey
+    // get one survey by id
     [HttpGet("{id}")]
     public ActionResult<Survey> GetSurvey(int id)
     {
@@ -28,6 +30,16 @@ namespace TravelAppAPI.Controllers
       if (survey == null) { return NotFound(); }
       return survey;
     }
+
+    // get one survey by location
+    //[HttpGet("{location}")]
+    //public ActionResult<Survey> GetSurveyByLocation(string location)
+    //{
+    //  var survey = _dbContext.Surveys.FirstOrDefault(s => s.Location == location.ToLower());
+    //  if (survey == null) { return NotFound(); }
+
+    //  return survey;
+    //}
 
     // create
     [HttpPost]

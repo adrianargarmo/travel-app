@@ -8,8 +8,9 @@ import { LocationService } from '../location.service';
 })
 export class LocationListComponent implements OnInit {
   locations: any[] = [];
+  receivedData: any;
 
-  constructor(private locationService: LocationService) {}
+  constructor(private locationService: LocationService) { }
 
   ngOnInit(): void {
     this.getLocations();

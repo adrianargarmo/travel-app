@@ -30,7 +30,7 @@ namespace TravelAppAPI.Controllers
     [HttpGet("{id}")]
     public ActionResult<Location> GetLocation(int id)
     {   
-      var location = _dbContext.Locations.Find(id);
+      var location = _dbContext.Locations.Find(id); 
       if (location == null) { return NotFound(); }
       return location;
     }
