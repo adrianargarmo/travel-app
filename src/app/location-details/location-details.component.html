@@ -5,16 +5,10 @@
             <strong>Name:</strong> {{ location.locationName }}
         </div>
         <div>
-            <strong>Location:</strong> {{ location.location }}
+            <strong>LatitudeNorth:</strong> {{ location.latitudeNorth  }}
         </div>
         <div>
-            <strong>Username:</strong> {{ location.username }}
-        </div>
-        <div>
-            <strong>Rating:</strong> {{ location.rating }}
-        </div>
-        <div>
-            <strong>Message:</strong> {{ location.message }}
+            <strong>LongitudeWest:</strong> {{ location.longitudeWest  }}
         </div>
         <!-- 
         <div>
@@ -25,13 +19,14 @@
         </div>
          -->
         <div>
-            <button routerLink="/locations">
+            <button routerLink="/home">
                 Back to List
             </button>
         </div>
     </div>
-
     <div *ngIf="!location">
         <p>Location not found!</p>
     </div>
 </div>
+  <app-safe-place [latitude]="location.latitudeNorth" [longitude]="location.longitudeWest"></app-safe-place>
+  <app-points-of-interest [latitude]="location.latitudeNorth" [longitude]="location.longitudeWest"></app-points-of-interest>
