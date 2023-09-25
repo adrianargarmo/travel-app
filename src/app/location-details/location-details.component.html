@@ -18,15 +18,13 @@
             <strong>Rating:</strong> {{ survey.rating || 'Not rated yet' }}
         </div>
          -->
+         <app-safe-place [latitude]="location.latitudeNorth" [longitude]="location.longitudeWest"></app-safe-place>
+         <app-points-of-interest [latitude]="location.latitudeNorth" [longitude]="location.longitudeWest"></app-points-of-interest>
         <div>
-            <button routerLink="/home">
-                Back to List
-            </button>
+            <button routerLink="/home"> Back </button>
         </div>
     </div>
     <div *ngIf="!location">
         <p>Location not found!</p>
     </div>
 </div>
-  <app-safe-place [latitude]="location.latitudeNorth" [longitude]="location.longitudeWest"></app-safe-place>
-  <app-points-of-interest [latitude]="location.latitudeNorth" [longitude]="location.longitudeWest"></app-points-of-interest>
