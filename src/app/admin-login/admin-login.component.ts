@@ -9,19 +9,21 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class AdminLoginComponent {
   username: string = '';
+  isAdminAuthenticated: boolean = false;
 
-  constructor(private authenticationService: AuthenticationService, private router: Router) { }
+  constructor(private authenticationService: AuthenticationService, private router: Router) {}
+
+  ngOnInit() {
+    this.isAdminAuthenticated = this.authenticationService.isAdminAuthenticatedUser();
+  }
 
   login(): void {
-    // Perform admin login based on the username provided
-    this.authenticationService.adminLogin(this.username);
+    this.isAdminAuthenticated = this.authenticationService.adminLogin(this.username);
 
-    // Check if the user is authenticated as an admin
     if (this.authenticationService.isAdminAuthenticatedUser()) {
-      // Navigate to the admin dashboard or any other admin-specific route
       this.router.navigate(['/admin-dashboard']);
     } else {
-      // Display an error message or handle unauthorized access
+      
       alert('Invalid admin username');
     }
   }

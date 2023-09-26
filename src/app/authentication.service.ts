@@ -5,16 +5,13 @@ import { Injectable } from '@angular/core';
 })
 export class AuthenticationService {
 
-  constructor() { }
+  private isAdminAuthenticated: boolean = false;
 
-  private isAdminAuthenticated = false;
-
-  adminLogin(username: string): void {
-    // Check if the provided username is valid for admin access
-    // You can hardcode an admin username or use a predefined list
+  adminLogin(username: string): boolean {
     if (username === 'admin') {
       this.isAdminAuthenticated = true;
     }
+    return this.isAdminAuthenticated;
   }
 
   adminLogout(): void {
