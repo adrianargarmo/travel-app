@@ -12,6 +12,7 @@ export class SafePlaceComponent implements OnInit {
   bearerToken: string = '';
   @Input() latitude: number = 0; 
   @Input() longitude: number = 0; 
+  radius: number = 20;
 
   constructor(private safePlaceService: SafePlaceApiService, private http: HttpClient) { }
 
@@ -22,7 +23,7 @@ export class SafePlaceComponent implements OnInit {
         this.bearerToken = token.access_token;
 
         // https://test.api.amadeus.com/v1/safety/safety-rated-locations?latitude=32.806993&longitude=-96.836857&radius=20&page[limit]=10
-        this.safePlaceService.getSafePlaceInformation(this.latitude, this.longitude, 20, this.bearerToken).subscribe(
+        this.safePlaceService.getSafePlaceInformation(this.latitude, this.longitude, this.radius, this.bearerToken).subscribe(
           (data: any) => {
             console.log(`data: ${JSON.stringify(data)}`)
             this.safePlaceData = data;

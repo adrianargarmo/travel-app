@@ -31,18 +31,22 @@ namespace TravelAppAPI.Controllers
       return survey;
     }
 
-    // get one survey by location
-    //[HttpGet("{location}")]
-    //public ActionResult<Survey> GetSurveyByLocation(string location)
-    //{
-    //  var survey = _dbContext.Surveys.FirstOrDefault(s => s.Location == location.ToLower());
-    //  if (survey == null) { return NotFound(); }
+    // get one survey by id
+    [HttpGet("location/{location}")]
+    public ActionResult<Survey> GetSurveyByLocation(string location)
+    {
+      var survey = _dbContext.Surveys.FirstOrDefault(s => s.Location == location);
 
-    //  return survey;
-    //}
+      if (survey == null)
+      {
+        return NotFound();
+      }
 
-    // create
-    [HttpPost]
+      return survey;
+    }
+
+      // create
+      [HttpPost]
     public IActionResult CreateSurvey([FromBody] Survey survey)
     {
       _dbContext.Surveys.Add(survey);

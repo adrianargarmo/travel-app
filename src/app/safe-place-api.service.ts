@@ -8,15 +8,13 @@ export class SafePlaceApiService {
 
   constructor(private http: HttpClient) { }
 
-  private apiKey = 'HyaD5EGAR6i4gy1Zy1zMbDAfNHLd5WAM'; // client_id
-  private apiSecret = "yWoll4AQNWb5oueS"; // client_secret
   private apiUrl = 'https://test.api.amadeus.com/v1/safety/safety-rated-locations';
   private tokenUrl = `https://test.api.amadeus.com/v1/security/oauth2/token`;
 
   getToken() {
     let bearerToken: string = '';
 
-    const data = 'grant_type=client_credentials&client_id=HyaD5EGAR6i4gy1Zy1zMbDAfNHLd5WAM&client_secret=yWoll4AQNWb5oueS'; // key vaults
+    const data = 'grant_type=client_credentials&client_id=7OMZliww7si2JQakqKTENzuODykHNxJe&client_secret=lpGgD5vZaeac3his'; // key vaults in azure
 
     const header1 = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded'

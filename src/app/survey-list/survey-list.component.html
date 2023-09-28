@@ -1,0 +1,53 @@
+<div *ngIf="isSurveyList">
+    <h1>Destination Reviews</h1>
+    <a routerLink="/add-survey">Add Review</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Traveler</th>
+                <th>Location</th>
+                <th>Review</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let survey of surveys">
+                <td>{{ survey.username }}</td>
+                <td>{{ survey.location }}</td>
+                <td>{{ survey.message }}</td>
+                <td>{{ survey.rating }}</td>
+                <div *ngIf="isAdminAuthenticated">
+                    <button [routerLink]="['/edit-survey', survey.id]">Edit</button>
+                    <button (click)="deleteSurvey(survey.id)">Delete</button>
+                </div>
+            </tr>
+        </tbody>
+    </table>
+    <button *ngIf="isAdminAuthenticated" (click)="logout()">Logout</button>
+</div>
+
+<div *ngIf="isLocationDetails">
+    <h1>Destination Reviews for {{location}}</h1>
+    <a routerLink="/add-survey">Add Review</a>
+    <table> 
+        <thead>
+            <tr>
+                <th>Traveler</th>
+                <th>Location</th>
+                <th>Review</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let survey of surveys">
+                <ng-container *ngIf="survey.location === location">
+                    <td>{{ survey.username }}</td>
+                    <td>{{ survey.location }}</td>
+                    <td>{{ survey.message }}</td>
+                    <td>{{ survey.rating }}</td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
