@@ -1,0 +1,14 @@
+<div>
+    <h1>Choose a destination!</h1>
+    <p>Here you will find safety ratings and places to visit for each destination.</p>
+    <table>
+        <tbody>
+            <tr *ngFor="let location of locations">
+                <button [routerLink]="['/location', location.id]">{{ location.locationName }}</button>
+                <br>
+                <img src="assets/images/{{location.locationName}}.jpg" alt="{{location.locationName}} Map">
+                <br><br>
+            </tr>
+        </tbody>
+    </table>
+</div>

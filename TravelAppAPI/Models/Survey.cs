@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace TravelAppAPI.Models;
@@ -16,4 +16,6 @@ public partial class Survey
     public int? Rating { get; set; }
 
     public string? Username { get; set; }
+
+    public virtual TravelUser? User { get; set; }
 }

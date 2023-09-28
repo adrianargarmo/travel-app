@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { SafePlaceApiService } from '../safe-place-api.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-safe-place',
@@ -8,17 +9,32 @@ import { SafePlaceApiService } from '../safe-place-api.service';
 })
 export class SafePlaceComponent implements OnInit {
   safePlaceData: any;
+  bearerToken: string = '';
+  @Input() latitude: number = 0; 
+  @Input() longitude: number = 0; 
+  radius: number = 20;
 
-  constructor(private safePlaceService: SafePlaceApiService) { }
+  constructor(private safePlaceService: SafePlaceApiService, private http: HttpClient) { }
 
   ngOnInit(): void {
-    // https://test.api.amadeus.com/v1/safety/safety-rated-locations?latitude=32.806993&longitude=-96.836857&radius=20&page[limit]=10
-    this.safePlaceService.getSafePlaceInformation(32.806993, -96.836857, 20).subscribe(
-      (data: any) => {
-        this.safePlaceData = data;
+    this.safePlaceService.getToken().subscribe(
+      (token: any) => {
+        console.log(`Token: ${token.access_token}`)
+        this.bearerToken = token.access_token;
+
+        // https://test.api.amadeus.com/v1/safety/safety-rated-locations?latitude=32.806993&longitude=-96.836857&radius=20&page[limit]=10
+        this.safePlaceService.getSafePlaceInformation(this.latitude, this.longitude, this.radius, this.bearerToken).subscribe(
+          (data: any) => {
+            console.log(`data: ${JSON.stringify(data)}`)
+            this.safePlaceData = data;
+          },
+          (error: any) => {
+            console.log(`Error: ${JSON.stringify(error)}`)
+          }
+        );
       },
       (error: any) => {
-        console.error(error);
+        console.log(`Error: ${error}`)
       }
     );
   }

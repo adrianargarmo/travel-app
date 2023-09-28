@@ -6,27 +6,33 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SurveyService {
-private apiUrl = 'https://localhost:7258/api/Values';
+  private apiUrl = 'https://localhost:7258/api/Values';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   getSurveys(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
-    }
+  }
 
-    getSurvey(id: number): Observable<any> {
+  getSurvey(id: number): Observable<any> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.get<any>(url);
-    }
-    createSurvey(survey: any): Observable<any> {
+  }
+
+  GetSurveyByLocation(location: string): Observable<any> {
+    const url = `${this.apiUrl}/location/${location}`;
+    return this.http.get<any>(url);
+  }
+
+  createSurvey(survey: any): Observable<any> {
     return this.http.post<any>(this.apiUrl, survey);
-    }
-    updateSurvey(id: number, survey: any): Observable<any> {
+  }
+  updateSurvey(id: number, survey: any): Observable<any> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.put<any>(url, survey);
-    }
-    deleteSurvey(id: number): Observable<any> {
+  }
+  deleteSurvey(id: number): Observable<any> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.delete<any>(url);
-    }
+  }
 }

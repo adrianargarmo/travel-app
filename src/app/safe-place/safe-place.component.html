@@ -1,1 +1,16 @@
-<p>safe-place works!</p>
+
+<div *ngIf="safePlaceData">
+  <h2>Safety Ratings</h2>
+    <ul>
+      <li *ngFor="let item of safePlaceData.data">
+        <h3>{{ item.name }}</h3>
+        Overall: {{ item.safetyScores.overall }}
+        LGBTQ: {{ item.safetyScores.lgbtq }}
+        Medical: {{ item.safetyScores.medical }}
+        Physical Harm: {{ item.safetyScores.physicalHarm }}
+        Political Freedom: {{ item.safetyScores.politicalFreedom }}
+        Theft: {{ item.safetyScores.theft }}
+        Women: {{ item.safetyScores.women }}
+      </li>
+    </ul>
+  </div>

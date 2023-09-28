@@ -5,41 +5,43 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PointsOfInterestApiService {
-  
-  constructor(private http:HttpClient) { }
 
-  private apiKey = 'HyaD5EGAR6i4gy1Zy1zMbDAfNHLd5WAM'; // client_id
-  private apiSecret = "yWoll4AQNWb5oueS"; // client_secret
-  private apiUrl = 'https://test.api.amadeus.com/v1/reference-data/locations';
-  private tokenUrl = 'https://test.api.amadeus.com/v1/security/oauth2/token';
+  constructor(private http: HttpClient) { }
 
-  getSafePlaceInformation(latitude: number, longitude: number, radius: number){
-    let bearerToken :string = '';
+  private apiUrl = 'https://test.api.amadeus.com/v1/reference-data/locations/pois';
+  private tokenUrl = `https://test.api.amadeus.com/v1/security/oauth2/token`;
 
-    //first call
-    const data = { grant_type: 'client_credentials', client_id: 'HyaD5EGAR6i4gy1Zy1zMbDAfNHLd5WAM', client_secret: 'yWoll4AQNWb5oueS'};
+  getToken() {
+    let bearerToken: string = '';
+
+    const data = 'grant_type=client_credentials&client_id=7OMZliww7si2JQakqKTENzuODykHNxJe&client_secret=lpGgD5vZaeac3his'; // key vaults
 
     const header1 = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded'
     });
-    
-    this.http.post(this.tokenUrl, data, { headers: header1 }).subscribe(
-      (response:any) => {
-        // Handle the response
-        bearerToken = `Bearer ${response.access_token}`;
-      },
-      (error) => {
-        // Handle errors
-      }
-    );
+    console.log(`token url:${this.tokenUrl}`);
 
+    return this.http.post(this.tokenUrl, data, { headers: header1 });
+  }
+
+  getPointsOfInterestInformation(latitude: number, longitude: number, radius: number, bearerToken: string) {
     const header2 = new HttpHeaders({
-      'Authorization': bearerToken
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': `Bearer ${bearerToken}`
     });
 
-    // second call
-    // https://test.api.amadeus.com/v1/reference-data/locations/pois?latitude=32.806993&longitude=-96.836857&radius=20&page[limit]=10
     const url = `${this.apiUrl}?latitude=${latitude}&longitude=${longitude}&radius=${radius}&page[limit]=10`;
-    return this.http.get(url, {headers: header2});
+    return this.http.get(url, { headers: header2 });
   }
+
+   
+   getPointsOfInterestInformationWithCategory(latitude: number, longitude: number, radius: number, bearerToken: string, category: any[]) {
+    const header3 = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': `Bearer ${bearerToken}`
+    });
+
+      const url = `${this.apiUrl}?latitude=${latitude}&longitude=${longitude}&radius=${radius}&page[limit]=10&categories=${category}`;
+      return this.http.get(url, { headers: header3 });    
+   }
 }
