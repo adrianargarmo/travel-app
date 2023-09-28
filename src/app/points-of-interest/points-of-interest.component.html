@@ -1,11 +1,21 @@
 <div *ngIf="pointsOfInterestData">
   <h2>Places to Visit</h2>
-    <ul>
-      <li *ngFor="let item of pointsOfInterestData.data"> 
-        <h3>{{ item.name }}</h3>
-        Category: {{ item.category }}
-        Rank: {{ item.rank }}
-        Tags: {{ item.tags }}
-      </li>
-    </ul>
+  <div>
+    <label for="category">Select Category:</label>
+    <select id="category" [(ngModel)]="selectedCategory">
+      <option value="">All</option>
+      <option value="sights">Sights</option>
+      <option value="nightlife">Night Life</option>
+      <option value="restaurant">Restaurant</option>
+      <option value="shopping">Shopping</option>
+    </select>
+    <button (click)="fetchPointsOfInterest()">Filter</button>
   </div>
+  <ul>
+    <li *ngFor="let item of pointsOfInterestData.data">
+      <h3>{{ item.name }}</h3>
+      Category: {{ item.category }}
+      Rank: {{ item.rank }}
+    </li>
+  </ul>
+</div>
