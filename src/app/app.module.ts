@@ -15,6 +15,9 @@ import { LocationDetailsComponent } from './location-details/location-details.co
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { HomeComponent } from './home/home.component';
     LocationDetailsComponent,
     AdminLoginComponent,
     AdminDashboardComponent,
-    HomeComponent
+    HomeComponent,
+    AboutComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { HomeComponent } from './home/home.component';
 import { SafePlaceComponent } from './safe-place/safe-place.component';
 import { PointsOfInterestComponent } from './points-of-interest/points-of-interest.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -23,7 +24,9 @@ const routes: Routes = [
   { path: 'location', component: LocationListComponent },
   { path: 'location/:id', component: LocationDetailsComponent},
   { path: 'admin-login', component: AdminLoginComponent },
-  { path: 'admin-dashboard', component: AdminDashboardComponent }
+  { path: 'admin-dashboard', component: AdminDashboardComponent },
+  { path: 'about', component: AboutComponent }
+  
 ];
 
 @NgModule({
