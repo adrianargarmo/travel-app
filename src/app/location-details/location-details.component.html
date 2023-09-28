@@ -20,6 +20,7 @@
          -->
          <app-safe-place [latitude]="location.latitudeNorth" [longitude]="location.longitudeWest"></app-safe-place>
          <app-points-of-interest [latitude]="location.latitudeNorth" [longitude]="location.longitudeWest"></app-points-of-interest>
+         <app-survey-list [isLocationDetails]="true" [location]="location.locationName"></app-survey-list>
         <div>
             <button routerLink="/home"> Back </button>
         </div>

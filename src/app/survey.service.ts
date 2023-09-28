@@ -18,6 +18,12 @@ export class SurveyService {
     const url = `${this.apiUrl}/${id}`;
     return this.http.get<any>(url);
   }
+
+  GetSurveyByLocation(location: string): Observable<any> {
+    const url = `${this.apiUrl}/location/${location}`;
+    return this.http.get<any>(url);
+  }
+
   createSurvey(survey: any): Observable<any> {
     return this.http.post<any>(this.apiUrl, survey);
   }
