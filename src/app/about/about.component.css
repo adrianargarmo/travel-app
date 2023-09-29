@@ -1,0 +1,22 @@
+*{
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.ab-mission {
+    text-align:center;
+    border-style: solid;
+    border-color: crimson;
+    
+}
+.safety-ratings{
+    border-style: double;
+}
+
+.safety-scores{
+    border-style:solid;
+    margin:2ch;
+    text-align: center;
+    list-style: none;
+}
+
