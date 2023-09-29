@@ -1,4 +1,4 @@
-<div *ngIf="pointsOfInterestData">
+<div class="no-bullets" *ngIf="pointsOfInterestData">
   <h2>Places to Visit</h2>
   <div>
     <label for="category">Select Category:</label>
@@ -11,11 +11,10 @@
     </select>
     <button (click)="fetchPointsOfInterest()">Filter</button>
   </div>
-  <ul>
-    <li *ngFor="let item of pointsOfInterestData.data">
+  <ul class="no-bullets">
+    <li  *ngFor="let item of pointsOfInterestData.data">
       <h3>{{ item.name }}</h3>
-      Category: {{ item.category }}
-      Rank: {{ item.rank }}
+      
     </li>
   </ul>
 </div>

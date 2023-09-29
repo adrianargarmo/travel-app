@@ -1,31 +1,30 @@
 <div>
-    <h1>Location Details</h1>
-    <div *ngIf="location">
-        <div>
+    <div class="location-details-container">
+        <div *ngIf="location" class="location-details">
+          <div class="location-info">
             <strong>Name:</strong> {{ location.locationName }}
+          </div>
+          
+            <div class="safe-place">
+                <app-safe-place [latitude]="location.latitudeNorth" [longitude]="location.longitudeWest"></app-safe-place>
+            </div>
+            
+          
+          </div>
+          <div class="surveys">
+            <app-survey-list [isLocationDetails]="true" [location]="location.locationName"></app-survey-list>
+          </div>
         </div>
-        <div>
-            <strong>LatitudeNorth:</strong> {{ location.latitudeNorth  }}
+        <div class="location-sidebar">
+          <!-- Your sidebar content here -->
+          <div class="points">
+          <app-points-of-interest [latitude]="location.latitudeNorth" [longitude]="location.longitudeWest"></app-points-of-interest>
         </div>
-        <div>
-            <strong>LongitudeWest:</strong> {{ location.longitudeWest  }}
+          <div class="back-button">
+            <button routerLink="/home">Back</button>
+          </div>
         </div>
-        <!-- 
-        <div>
-        <strong>Review:</strong> {{ survey.message || 'No review available' }}
-        </div>
-        <div>
-            <strong>Rating:</strong> {{ survey.rating || 'Not rated yet' }}
-        </div>
-         -->
-         <app-safe-place [latitude]="location.latitudeNorth" [longitude]="location.longitudeWest"></app-safe-place>
-         <app-points-of-interest [latitude]="location.latitudeNorth" [longitude]="location.longitudeWest"></app-points-of-interest>
-         <app-survey-list [isLocationDetails]="true" [location]="location.locationName"></app-survey-list>
-        <div>
-            <button routerLink="/home"> Back </button>
-        </div>
-    </div>
-    <div *ngIf="!location">
+      </div>
+      <div *ngIf="!location" class="location-not-found">
         <p>Location not found!</p>
-    </div>
-</div>
+      </div>

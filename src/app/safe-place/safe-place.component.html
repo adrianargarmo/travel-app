@@ -2,15 +2,24 @@
 <div *ngIf="safePlaceData">
   <h2>Safety Ratings</h2>
     <ul>
-      <li *ngFor="let item of safePlaceData.data">
+      <li class="no-bullets" *ngFor="let item of safePlaceData.data">
         <h3>{{ item.name }}</h3>
-        Overall: {{ item.safetyScores.overall }}
-        LGBTQ: {{ item.safetyScores.lgbtq }}
-        Medical: {{ item.safetyScores.medical }}
-        Physical Harm: {{ item.safetyScores.physicalHarm }}
-        Political Freedom: {{ item.safetyScores.politicalFreedom }}
-        Theft: {{ item.safetyScores.theft }}
-        Women: {{ item.safetyScores.women }}
+        <ul class="stat-heading">
+          <li>Overall:{{ item.safetyScores.overall }}</li>
+          <li>LGBTQ: {{ item.safetyScores.lgbtq }}</li>
+          <li>Medical: {{ item.safetyScores.medical }}</li>
+          <li>Physical Harm: {{ item.safetyScores.physicalHarm }}</li>
+          <li>Political Freedom: {{ item.safetyScores.politicalFreedom }}</li>
+          <li>Theft: {{ item.safetyScores.theft }}</li>
+          <li> Women: {{ item.safetyScores.women }}</li>
+        </ul>
+        
+        
+        
+        
+        
+        
+       
       </li>
     </ul>
   </div>
