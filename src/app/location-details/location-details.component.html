@@ -1,23 +1,8 @@
-<div>
-    <h1>Location Details</h1>
+<div class="all">
     <div *ngIf="location">
-        <div>
-            <strong>Name:</strong> {{ location.locationName }}
-        </div>
-        <div>
-            <strong>LatitudeNorth:</strong> {{ location.latitudeNorth  }}
-        </div>
-        <div>
-            <strong>LongitudeWest:</strong> {{ location.longitudeWest  }}
-        </div>
-        <!-- 
-        <div>
-        <strong>Review:</strong> {{ survey.message || 'No review available' }}
-        </div>
-        <div>
-            <strong>Rating:</strong> {{ survey.rating || 'Not rated yet' }}
-        </div>
-         -->
+        <h1>{{ location.locationName }}</h1>
+        <h2>Map</h2>
+        <img src="assets/images/{{location.locationName}}.jpg" alt="{{location.locationName}} Map">
          <app-safe-place [latitude]="location.latitudeNorth" [longitude]="location.longitudeWest"></app-safe-place>
          <app-points-of-interest [latitude]="location.latitudeNorth" [longitude]="location.longitudeWest"></app-points-of-interest>
          <app-survey-list [isLocationDetails]="true" [location]="location.locationName"></app-survey-list>
