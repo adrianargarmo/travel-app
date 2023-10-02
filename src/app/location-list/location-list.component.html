@@ -1,14 +1,23 @@
-<div>
+<div class="all">
+  <div class="information">
     <h1>Choose a destination!</h1>
     <p>Here you will find safety ratings and places to visit for each destination.</p>
+  </div>
+  <div class="table">
     <table>
-        <tbody>
-            <tr *ngFor="let location of locations">
-                <button [routerLink]="['/location', location.id]">{{ location.locationName }}</button>
-                <br>
-                <img src="assets/images/{{location.locationName}}.jpg" alt="{{location.locationName}} Map">
-                <br><br>
-            </tr>
-        </tbody>
+      <tbody>
+        <div class="table-row">
+          <tr *ngFor="let location of locations">
+            <div class="table-content">
+              <div class="image-and-text">
+                <a [routerLink]="['/location', location.id]"><img class="table-image"
+                    src="assets/images/{{location.locationName}}.jpeg" alt="{{location.locationName}} Map"></a>
+                <div class="bottom-left">{{location.locationName}}</div>
+              </div>
+            </div>
+          </tr>
+        </div>
+      </tbody>
     </table>
+  </div>
 </div>
