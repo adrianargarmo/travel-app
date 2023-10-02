@@ -1,7 +1,7 @@
 <div *ngIf="isSurveyList">
     <h1>Destination Reviews</h1>
     <a routerLink="/add-survey">Add Review</a>
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Traveler</th>
@@ -27,7 +27,7 @@
 </div>
 
 <div *ngIf="isLocationDetails">
-    <h1>Destination Reviews for {{location}}</h1>
+    <h2>Traveler Reviews for {{location}}</h2>
     <a routerLink="/add-survey">Add Review</a>
     <table> 
         <thead>

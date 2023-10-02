@@ -1,16 +1,72 @@
+<div class="all">
+<h2>Safety Ratings</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Overall Rating</th>
+      <th>LGBTQ Rating</th>
+      <th>Medical Rating</th>
+      <th>Physical Harm Rating</th>
+      <th>Political Freedom Rating</th>
+      <th>Theft Rating</th>
+      <th>Women Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of safePlaceData.data">
+      <td>{{ item.name }}</td>
+      <td>
+        <span class="No-Data-Available" *ngIf="item.safetyScores.overall === 0">No Data Available</span>
+        <span class="Least-Safe" *ngIf="item.safetyScores.overall >= 1 && item.safetyScores.overall <= 30">Least Safe</span>
+        <span class="Unstable" *ngIf="item.safetyScores.overall >= 31 && item.safetyScores.overall <= 60">Unstable</span>
+        <span class="Less-Safe" *ngIf="item.safetyScores.overall >= 61 && item.safetyScores.overall <= 80">Less Safe</span>
+        <span class="Very-Safe" *ngIf="item.safetyScores.overall >= 81 && item.safetyScores.overall <= 100">Very Safe</span>
+      </td>
+      <td>
+        <span class="No-Data-Available" *ngIf="item.safetyScores.lgbtq === 0">No Data Available</span>
+        <span class="Least-Safe" *ngIf="item.safetyScores.lgbtq >= 1 && item.safetyScores.lgbtq <= 30">Least Safe</span>
+        <span class="Unstable" *ngIf="item.safetyScores.lgbtq >= 31 && item.safetyScores.lgbtq <= 60">Unstable</span>
+        <span class="Less-Safe" *ngIf="item.safetyScores.lgbtq >= 61 && item.safetyScores.lgbtq <= 80">Less Safe</span>
+        <span class="Very-Safe" *ngIf="item.safetyScores.lgbtq >= 81 && item.safetyScores.lgbtq <= 100">Very Safe</span>
+      </td>
+      <td>
+        <span class="No-Data-Available" *ngIf="item.safetyScores.medical === 0">No Data Available</span>
+        <span class="Least-Safe" *ngIf="item.safetyScores.medical >= 1 && item.safetyScores.medical <= 30">Least Safe</span>
+        <span class="Unstable" *ngIf="item.safetyScores.medical >= 31 && item.safetyScores.medical <= 60">Unstable</span>
+        <span class="Less-Safe" *ngIf="item.safetyScores.medical >= 61 && item.safetyScores.medical <= 80">Less Safe</span>
+        <span class="Very-Safe" *ngIf="item.safetyScores.medical >= 81 && item.safetyScores.medical <= 100">Very Safe</span>
+      </td>
+      <td>
+        <span class="No-Data-Available" *ngIf="item.safetyScores.physicalHarm === 0">No Data Available</span>
+        <span class="Least-Safe" *ngIf="item.safetyScores.physicalHarm >= 1 && item.safetyScores.physicalHarm <= 30">Least Safe</span>
+        <span class="Unstable" *ngIf="item.safetyScores.physicalHarm >= 31 && item.safetyScores.physicalHarm <= 60">Unstable</span>
+        <span class="Less-Safe" *ngIf="item.safetyScores.physicalHarm >= 61 && item.safetyScores.physicalHarm <= 80">Less Safe</span>
+        <span class="Very-Safe" *ngIf="item.safetyScores.physicalHarm >= 81 && item.safetyScores.physicalHarm <= 100">Very Safe</span>
+      </td>
+      <td>
+        <span class="No-Data-Available" *ngIf="item.safetyScores.politicalFreedom === 0">No Data Available</span>
+        <span class="Least-Safe" *ngIf="item.safetyScores.politicalFreedom >= 1 && item.safetyScores.politicalFreedom <= 30">Least Safe</span>
+        <span class="Unstable" *ngIf="item.safetyScores.politicalFreedom >= 31 && item.safetyScores.politicalFreedom <= 60">Unstable</span>
+        <span class="Less-Safe" *ngIf="item.safetyScores.politicalFreedom >= 61 && item.safetyScores.politicalFreedom <= 80">Less Safe</span>
+        <span class="Very-Safe" *ngIf="item.safetyScores.politicalFreedom >= 81 && item.safetyScores.politicalFreedom <= 100">Very Safe</span>
+      </td>
+      <td>
+        <span class="No-Data-Available" *ngIf="item.safetyScores.theft === 0">No Data Available</span>
+        <span class="Least-Safe" *ngIf="item.safetyScores.theft >= 1 && item.safetyScores.theft <= 30">Least Safe</span>
+        <span class="Unstable" *ngIf="item.safetyScores.theft >= 31 && item.safetyScores.theft <= 60">Unstable</span>
+        <span class="Less-Safe" *ngIf="item.safetyScores.theft >= 61 && item.safetyScores.theft <= 80">Less Safe</span>
+        <span class="Very-Safe" *ngIf="item.safetyScores.theft >= 81 && item.safetyScores.theft <= 100">Very Safe</span>
+      </td>
+      <td>
+        <span class="No-Data-Available" *ngIf="item.safetyScores.women === 0">No Data Available</span>
+        <span class="Least-Safe" *ngIf="item.safetyScores.women >= 1 && item.safetyScores.women <= 30">Least Safe</span>
+        <span class="Unstable" *ngIf="item.safetyScores.women >= 31 && item.safetyScores.women <= 60">Unstable</span>
+        <span class="Less-Safe" *ngIf="item.safetyScores.women >= 61 && item.safetyScores.women <= 80">Less Safe</span>
+        <span class="Very-Safe" *ngIf="item.safetyScores.women >= 81 && item.safetyScores.women <= 100">Very Safe</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
-<div *ngIf="safePlaceData">
-  <h2>Safety Ratings</h2>
-    <ul>
-      <li *ngFor="let item of safePlaceData.data">
-        <h3>{{ item.name }}</h3>
-        Overall: {{ item.safetyScores.overall }}
-        LGBTQ: {{ item.safetyScores.lgbtq }}
-        Medical: {{ item.safetyScores.medical }}
-        Physical Harm: {{ item.safetyScores.physicalHarm }}
-        Political Freedom: {{ item.safetyScores.politicalFreedom }}
-        Theft: {{ item.safetyScores.theft }}
-        Women: {{ item.safetyScores.women }}
-      </li>
-    </ul>
-  </div>

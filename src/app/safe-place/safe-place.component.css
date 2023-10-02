@@ -1,0 +1,52 @@
+
+.No-Data-Available {
+    color: #B60301;
+
+}
+
+.Least-Safe {
+    color: #D5821D;
+}
+
+.Unstable {
+    color: #F9D033;
+
+}
+
+.Less-Safe {
+    color: #6DB139;
+
+}
+
+.Very-Safe {
+    color: #24B349;
+
+}
+  
+table {
+    margin: auto;
+    width: fit-content;
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    border-style: outset;
+    border-width: 7px;
+    border-collapse: collapse;
+}
+
+table tr {
+    border-bottom: 1px dashed black; 
+}
+
+table td, table th {
+    border-right: 1px dashed black;
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle;
+}
+ 
+  .all {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+
+  }

@@ -14,7 +14,9 @@ export class PointsOfInterestApiService {
   getToken() {
     let bearerToken: string = '';
 
-    const data = 'grant_type=client_credentials&client_id=7OMZliww7si2JQakqKTENzuODykHNxJe&client_secret=lpGgD5vZaeac3his'; // key vaults
+
+    const data = 'grant_type=client_credentials&client_id=q6NRArewG9t09p0bot6xPuDlacNT8ott&client_secret=IUkRW0VE5zJ4Ruj8'; // key vaults
+
 
     const header1 = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded'

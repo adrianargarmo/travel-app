@@ -12,9 +12,8 @@ builder.Services.AddSwaggerGen();
 
 // NEW LINES OF CODE FOR EF
 IConfigurationBuilder buildConfig = new ConfigurationBuilder().AddJsonFile("appsettings.json", false, true);
-IConfiguration configuration = buildConfig.Build();
 builder.Services.AddDbContext<TravelAppDbContext>(options =>
-options.UseSqlServer(configuration.GetConnectionString("TravelAppDB")));
+options.UseSqlServer(buildConfig.Build().GetConnectionString("TravelAppDB")));
 // END OF NEW LINES
 
 builder.Services.AddCors(options =>
