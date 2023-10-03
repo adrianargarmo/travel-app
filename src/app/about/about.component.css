@@ -1,52 +1,56 @@
-*{
-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-list-style: none;
-text-align:center
-
+* {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    list-style: none;
+    text-align: center;   
 }
-.intro{
+
+.intro {
     text-align: center;
     font-size: 30px;
     color: blue;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .ab-mission {
-    text-align:center;
+    text-align: center;
     border-style: solid;
     border-color: crimson;
     margin-left: 500px;
     margin-right: 500px;
     margin-top: 50px;
     border-radius: 50px;
-    
+
 }
-.safety-ratings{
+
+.safety-ratings {
     border-style: double;
     margin: 30px;
-        text-align:center;
-        padding: .5%;
-        border-radius: 100px;
-        border-color: firebrick;
-        
-        
-
+    text-align: center;
+    padding: .5%;
+    border-radius: 100px;
+    border-color: firebrick;
 }
-strong{
+
+.all {
+    padding-top: 60px;
+}
+
+strong {
     margin: 7px;
 }
-.safety-scores{
-    border-style:solid;
-    margin-left:450px;
-    margin-right:450px;
+
+.safety-scores {
+    border-style: solid;
+    margin-left: 450px;
+    margin-right: 450px;
     text-align: center;
-    display:flex;
+    display: flex;
     border-radius: 50px;
     border-color: burlywood;
-    
-}
-h3{
-    text-align: center;
-  margin-left:41px
+
 }
 
+h3 {
+    text-align: center;
+    margin-left: 41px
+}

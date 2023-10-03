@@ -10,24 +10,19 @@
         <option value="restaurant">Restaurant</option>
         <option value="shopping">Shopping</option>
       </select>
-      <button (click)="fetchPointsOfInterest()">Filter</button>
+      <button (click)="fetchPointsOfInterest()">Search</button>
     </div>
     <table>
       <thead>
         <tr>
           <th>Name</th>
-          <th>Category</th>
-          <th>Rank</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let item of pointsOfInterestData.data">
           <td>{{ item.name }}</td>
-          <td>{{ item.category }}</td>
-          <td>{{ item.rank }}</td>
         </tr> 
       </tbody>
     </table>
   </div>
-
 </div>
