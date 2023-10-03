@@ -1,25 +1,27 @@
-<div>
-    <h1>{{ isEditing ? 'Edit Survey' : 'Add New Survey' }}</h1>
-    <form (ngSubmit)="saveSurvey()">
-        <div>
-            <label for="location">Location</label>
-            <input type="text" id="location" name="location" [(ngModel)]="survey.location" />
-        </div>
-        <div>
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" [(ngModel)]="survey.username" />
-        </div>
-        <div>
-            <label for="rating">Rating</label>
-            <input type="number" id="rating" name="rating" [(ngModel)]="survey.rating" />
-        </div>
-        <div>
-            <label for="message">Message</label>
-            <input type="text" id="message" name="message" [(ngModel)]="survey.message" />
-        </div>
-        <div>
-            <button type="submit"> {{ isEditing ? 'Update' : 'Save' }} </button>
-            <button type="button" (click)="cancelForm()">Cancel</button>
-        </div>
-    </form>
+<div class="all">
+    <h1>{{ isEditing ? 'Edit Review' : 'Add a Review!' }}</h1>
+    <table>
+        <tr>
+            <td><label for="location">Location</label></td>
+            <td><input type="text" id="location" name="location" [(ngModel)]="survey.location" /></td>
+        </tr>
+        <tr>
+            <td><label for="username">Username</label></td>
+            <td><input type="text" id="username" name="username" [(ngModel)]="survey.username" /></td>
+        </tr>
+        <tr>
+            <td><label for="rating">Rating</label></td>
+            <td><input type="number" id="rating" name="rating" [(ngModel)]="survey.rating" /></td>
+        </tr>
+        <tr>
+            <td><label for="message">Message</label></td>
+            <td><input type="text" id="message" name="message" [(ngModel)]="survey.message" /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit"> {{ isEditing ? 'Update' : 'Save' }} </button>
+                <button type="button" (click)="cancelForm()">Cancel</button>
+            </td>
+        </tr>
+    </table>
 </div>

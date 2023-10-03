@@ -44,6 +44,10 @@ table td, table th {
     text-align: center;
     vertical-align: middle;
 }
+
+table th {
+    background-color: #f0f0f0;
+}
  
   .all {
     font-family: Arial, Helvetica, sans-serif;
