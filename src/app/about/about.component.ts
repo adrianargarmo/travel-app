@@ -29,4 +29,7 @@ export class AboutComponent {
     { label: 'Less Safe', range: '61-80' },
     { label: 'Very Safe', range: '81-100' }
   ];
+  intro = {
+    message: 'We will make sure your not vacationing in a warzone!'
+  }
 }

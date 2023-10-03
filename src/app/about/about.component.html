@@ -1,9 +1,13 @@
 
-<div class="">
-    
+
+
+
+ <div>   
     <div class="ab-mission">
 <h2 >{{ aboutInformation.title }}</h2>
-
+</div>
+<P class="intro">{{intro.message}}</P>
+<div>
 <h3 class="about">About</h3>
 <p>{{ aboutInformation.description }}</p>
 <h3 class=" mission">Mission</h3>
@@ -11,9 +15,24 @@
 </div>
 
 <div class="safety-ratings">
-<div >
-<h3 >Saftey Ratings</h3>
-<div  class="safety-ratings" *ngFor="let item of safetyRatingInformation | keyvalue">
+    
+    <h3>Saftey Ratings</h3>
+    <div class=" safety-scores">
+        
+        <strong class="strong">Safety Scores</strong>
+        
+        <div class="info" *ngFor="let range of safetyRanges">
+            <ul><li>{{ range.range }}: {{ range.label }}</li></ul>
+        </div>
+        
+        </div>
+        
+        <h3>Traveler Reviews</h3>
+        <p>{{ aboutInformation.travelerReviews }}</p>
+<div>
+    
+
+<div *ngFor="let item of safetyRatingInformation | keyvalue">
     <ul>
         <li><strong>{{ item.key }}</strong></li>
         <p>{{ item.value }}</p>
@@ -22,12 +41,5 @@
 </div>
 </div>
 
-<div class=" safety-scores">
-<strong>Safety Scores</strong>
-<div class="info" *ngFor="let range of safetyRanges">
-    <ul><li>{{ range.range }}: {{ range.label }}</li></ul>
-</div>
-</div>
-<h3>Traveler Reviews</h3>
-<p>{{ aboutInformation.travelerReviews }}</p>
+
 
