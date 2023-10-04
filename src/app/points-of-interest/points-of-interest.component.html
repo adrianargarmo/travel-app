@@ -16,11 +16,13 @@
       <thead>
         <tr>
           <th>Name</th>
+          <th>Category</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let item of pointsOfInterestData.data">
           <td>{{ item.name }}</td>
+          <td>{{item.category}}</td>
         </tr> 
       </tbody>
     </table>
